@@ -53,6 +53,9 @@ def main(params):
             return "table already exists. Skiping insert."
 
     #download files only if they do not exist
+    if not os.path.exists("data/ny_taxi"):
+        os.mkdir("./data/ny_taxi/")
+
     if params.url == "trips":
         path = "data/ny_taxi/yellow_tripdata_2021-01.parquet"
         if not os.path.isfile(path):

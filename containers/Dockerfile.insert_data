@@ -1,0 +1,12 @@
+FROM python:3.10.1
+
+RUN apt-get install wget
+
+RUN pip install pandas numpy SQLAlchemy psycopg2 pyarrow fastparquet
+
+WORKDIR /app
+COPY src/ src/
+
+RUN mkdir -p /app/data/ny_taxi
+
+ENTRYPOINT ["python", "src/pipeline.py"]

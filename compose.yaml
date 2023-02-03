@@ -11,8 +11,8 @@ services:
       - "5432:5432"
     volumes:
       - "${pwd}/data/ny_taxi_postgres_data:/var/lib/postgresql/data:rw"
-    # networks:
-    #   - de-zoomcamp-postgres
+    networks:
+      - de-zoomcamp-postgres
       
   pgadmin:
     image: dpage/pgadmin4
@@ -21,9 +21,9 @@ services:
       PGADMIN_DEFAULT_PASSWORD: "root"
     ports:
       - "8080:80"
-    # networks:
-    #   - de-zoomcamp-postgres
+    networks:
+      - de-zoomcamp-postgres
 
-# networks: 
-#   postgres-compose-network:
-#     driver: bridge
+networks: 
+  de-zoomcamp-postgres:
+    driver: bridge
